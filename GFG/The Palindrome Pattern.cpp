@@ -1,4 +1,4 @@
-// Given a two-dimensional integer array arr of dimensions n x n, 
+ // Given a two-dimensional integer array arr of dimensions n x n, 
 // consisting solely of zeros and ones, identify the row or column 
 // (using 0-based indexing) where all elements form a palindrome. 
 // If multiple palindromes are identified, prioritize the palindromes 
@@ -18,8 +18,12 @@ Explanation: In the first test case, 0-1-0 is a palindrome
 occuring in a row having index 1.
 
 x--------------------------------------------------x-----------x---------------------------------------------------------------x
+class Solution{
+  public:
 
- string ans = "-1";
+    string pattern(vector<vector<int>> &arr) {
+        // Code Here
+         string ans = "-1";
         int n = arr.size();
         for(int i = 0; i < n; i++){
             bool flag = true;
@@ -66,3 +70,5 @@ x--------------------------------------------------x-----------x----------------
         }
         
         return ans;
+    }
+};
