@@ -11,15 +11,18 @@ x--------------------------------------------------------x-------------------x--
 class Solution {
   public:
     vector<int> constructLowerArray(vector<int> &arr) {
-        // code here
-        int n = arr.size();
-        vector<int>ans(n, 0);
-        multiset<int>st;
-        st.insert(arr[n-1]);
-        for(int i=n-2; i>=0; i--){
-            int dist = distance(st.begin(), st.lower_bound(arr[i]));
-            ans[i]=dist;
-            st.insert(arr[i]);
+      vector<int> ans;
+    int n= arr.size();
+    vector<int> temp;
+      
+        for(int i=0;i<n;i++){
+            temp.push_back(arr[i]);
+        }
+        sort(temp.begin(),temp.end());
+        for(int i=0;i<n;i++){
+            int index=lower_bound(temp.begin(),temp.end(),arr[i])-temp.begin();
+            ans.push_back(index);
+            temp.erase(temp.begin()+index);
         }
         return ans;
     }
